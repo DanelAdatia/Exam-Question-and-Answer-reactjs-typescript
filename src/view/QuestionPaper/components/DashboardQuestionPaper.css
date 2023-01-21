@@ -1,0 +1,21 @@
+.DashboardQuestionPaper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sameRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.WithPrev {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.WithoutPrev {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

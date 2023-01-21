@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState } from "react";
+import QuestionPaper from "./view/QuestionPaper/QuestionPaper";
+
+interface CurrentIndexState {
+  currentIndex: number;
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export const CurrentIndexContext = createContext<CurrentIndexState>({
+  currentIndex: 0,
+  setCurrentIndex: (a) => {},
+});
 
 function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CurrentIndexContext.Provider value={{ currentIndex, setCurrentIndex }}>
+        <QuestionPaper />
+      </CurrentIndexContext.Provider>
     </div>
   );
 }
